@@ -1,0 +1,147 @@
+ /* Базові налаштування */
+@import url(
+"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+body {
+    font-family: "Roboto Mono", monospace;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Контейнер для списку завдань */
+.task-list-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px gainsboro;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+/* Заголовок списку завдань */
+.task-list-header {
+  position: relative;
+  line-height: 20px;
+  padding: 7px 15px;
+  background: ghostwhite;
+  border-bottom: 1px solid gainsboro;
+  border-radius: 12px 12px 0 0;
+}
+
+
+.task-list-title {
+    font-weight: bold;
+    color: green;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
+/* Елемент списку завдань */
+.task-list-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    border-bottom: 1px solid gainsboro;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.task-list-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Приховуємо стандартний чекбокс */
+.task-list-item input {
+    display: none;
+}
+
+
+/* Створюємо кастомний чекбокс */
+.task-checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid green;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+
+/* Стиль тексту завдання */
+.task-text {
+    color: green;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+
+/* Логіка при натисканні (через CSS селектор :checked) */
+.task-list-item input:checked + .task-checkmark {
+    background-color: green;
+}
+
+
+.task-list-item input:checked + .task-checkmark::after {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    left: 4px;
+    top: -1px;
+}
+
+
+.task-list-item input:checked ~ .task-text {
+    text-decoration: line-through;
+    color: yellowgreen;
+}
+
+
+/* Ефект при наведенні на текст завдання*/
+.task-text:hover {
+    font-weight: bold;
+}
+/* Група вводу */
+.task-input {
+    display: flex;
+    padding: 10px 10px;
+    gap: 10px;
+          margin-bottom: 20px;
+}
+ 
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid green;
+          border-radius: 6px;
+    outline: none;
+          transition: border-color 0.3s;
+}
+ 
+input[type="text"]:focus {
+    border-color: forestgreen;
+}
+ 
+#add-btn {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+ 
+#add-btn:hover {
+    background-color: forestgreen;
+}
+
+
